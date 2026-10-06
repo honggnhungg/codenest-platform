@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khóa Học Yêu Thích - CodeNest</title>
+  <meta name="description" content="Danh sách khóa học đã lưu vào mục yêu thích tại CodeNest.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/" class="brand-logo">
+        <div class="brand-icon"><i class="fa-solid fa-code"></i></div>
+        <span>Code<span class="brand-highlight">Nest</span></span>
+      </a>
+
+      <nav class="main-nav" id="main-nav">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/courses" class="nav-link">Courses</a>
+        <a href="/my-learning" class="nav-link">Learning</a>
+        <a href="/dashboard" class="nav-link">Dashboard</a>
+        <a href="/admin" class="nav-link" style="color: var(--primary);"><i class="fa-solid fa-shield-halved"></i> Admin</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="notif-wrapper">
+          <button class="notif-btn" id="notif-btn"><i class="fa-regular fa-bell"></i><span class="notif-badge" id="notif-badge"></span></button>
+          <div class="notif-dropdown" id="notif-dropdown">
+            <div class="notif-header">
+              <span class="notif-title">Thông báo</span>
+              <button class="notif-clear" id="notif-clear-btn">Đánh dấu đã đọc</button>
+            </div>
+            <ul class="notif-list" id="notif-list"></ul>
+          </div>
+        </div>
+
+        <div class="user-menu-wrapper">
+          <button class="user-avatar-btn" id="user-avatar-btn">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Avatar" class="user-avatar-img">
+            <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; color: var(--text-muted);"></i>
+          </button>
+          <div class="user-menu-dropdown" id="user-menu-dropdown">
+            <div class="user-menu-header">
+              <div class="user-menu-name">Alex Morgan</div>
+              <div class="user-menu-email">student@codenest.dev</div>
+            </div>
+            <a href="/dashboard" class="user-menu-item"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+            <a href="/my-learning" class="user-menu-item"><i class="fa-solid fa-book-open"></i> My Learning</a>
+            <a href="/wishlist" class="user-menu-item"><i class="fa-regular fa-heart"></i> Wishlist</a>
+            <a href="/profile" class="user-menu-item"><i class="fa-regular fa-user"></i> Profile</a>
+            <a href="/settings" class="user-menu-item"><i class="fa-solid fa-gear"></i> Settings</a>
+            <a href="/admin" class="user-menu-item"><i class="fa-solid fa-shield-halved"></i> Admin Console</a>
+            <div class="user-menu-divider"></div>
+            <a href="/login" class="user-menu-item" style="color: var(--danger);"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+          </div>
+        </div>
+
+        <button class="mobile-toggle" id="mobile-toggle"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 24px 80px;">
+    <div style="margin-bottom: 32px;">
+      <h1 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 8px;">
+        <i class="fa-solid fa-heart" style="color: var(--danger); margin-right: 8px;"></i>
+        Danh sách yêu thích (Wishlist)
+      </h1>
+      <p style="color: var(--text-secondary); font-size: 1.05rem;">
+        Các khóa học bạn đã lưu để đăng ký học trong tương lai.
+      </p>
+    </div>
+
+    <!-- Wishlist Grid -->
+    <div class="courses-grid-view" id="wishlist-grid"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="border: none; padding: 0;">
+      <div>&copy; 2026 CodeNest. All rights reserved.</div>
+      <a href="/courses" style="color: var(--primary); font-weight: 600;">← Khám phá thêm khóa học</a>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      window.renderWishlistPage = () => {
+        const grid = document.getElementById('wishlist-grid');
+        const user = CodeNestData.currentUser;
+        const list = CodeNestData.courses.filter(c => user.wishlist.includes(c.id));
+
+        if (list.length === 0) {
+          grid.innerHTML = `
+            <div class="empty-state" style="grid-column: 1 / -1;">
+              <div class="empty-state-icon"><i class="fa-regular fa-heart"></i></div>
+              <h3 class="empty-state-title">Danh sách yêu thích trống</h3>
+              <p class="empty-state-desc">Bạn chưa lưu khóa học nào. Hãy khám phá thư viện khóa học để chọn những chủ đề bạn quan tâm.</p>
+              <a href="/courses" class="btn btn-primary">Khám phá khóa học ngay</a>
+            </div>
+          `;
+          return;
+        }
+
+        grid.innerHTML = list.map(c => `
+          <div class="course-card">
+            <div class="course-card-thumb" style="background: ${c.thumbnailBg}; height: 140px;">
+              <i class="fa-brands ${c.iconClass}" style="font-size: 2.8rem;"></i>
+              <button class="course-card-wishlist active" onclick="toggleWishlist('${c.id}', event)">
+                <i class="fa-solid fa-heart" style="color: var(--danger);"></i>
+              </button>
+            </div>
+            <div class="course-card-body">
+              <span class="course-card-category">${c.category}</span>
+              <h3 class="course-card-title"><a href="/course?id=${c.id}">${c.title}</a></h3>
+              <p class="course-card-desc">${c.description}</p>
+            </div>
+            <div class="course-card-footer">
+              <span style="font-size: 0.82rem; color: var(--text-muted);"><i class="fa-regular fa-clock"></i> ${c.duration}</span>
+              <button class="btn btn-primary btn-sm" onclick="enrollCourse('${c.id}')">
+                Đăng ký học
+              </button>
+            </div>
+          </div>
+        `).join('');
+      };
+
+      renderWishlistPage();
+    });
+  </script>
+</body>
+</html>

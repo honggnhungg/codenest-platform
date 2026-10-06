@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - CodeNest</title>
+  <meta name="description" content="Trang tổng quan quản trị nền tảng đào tạo lập trình CodeNest.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/" class="brand-logo">
+        <div class="brand-icon"><i class="fa-solid fa-code"></i></div>
+        <span>Code<span class="brand-highlight">Nest</span></span>
+        <span class="badge badge-purple" style="font-size: 0.72rem; margin-left: 6px;">Admin Mode</span>
+      </a>
+
+      <div class="header-actions">
+        <a href="/" class="btn btn-outline btn-sm"><i class="fa-solid fa-arrow-up-right-from-square"></i> Xem Website</a>
+        <a href="/login" class="btn btn-secondary btn-sm"><i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Admin Layout: Sidebar + Content -->
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <a href="/admin" class="admin-sidebar-link active">
+        <i class="fa-solid fa-gauge"></i> Dashboard
+      </a>
+      <a href="/admin/users" class="admin-sidebar-link">
+        <i class="fa-solid fa-users"></i> Users
+      </a>
+      <a href="/admin/courses" class="admin-sidebar-link">
+        <i class="fa-solid fa-book"></i> Courses
+      </a>
+      <a href="/admin/courses" class="admin-sidebar-link">
+        <i class="fa-solid fa-list-check"></i> Lessons
+      </a>
+      <a href="/admin/courses" class="admin-sidebar-link">
+        <i class="fa-solid fa-tags"></i> Categories
+      </a>
+      <a href="/admin" class="admin-sidebar-link">
+        <i class="fa-solid fa-chart-pie"></i> Analytics
+      </a>
+      <a href="/admin/settings" class="admin-sidebar-link">
+        <i class="fa-solid fa-gear"></i> Settings
+      </a>
+    </aside>
+
+    <main class="admin-content">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; flex-wrap: wrap; gap: 14px;">
+        <div>
+          <h1 style="font-size: 1.8rem; font-weight: 800;">Platform Overview</h1>
+          <p style="color: var(--text-secondary); font-size: 0.92rem;">Theo dõi số liệu tăng trưởng và hoạt động học tập trên hệ thống CodeNest.</p>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <a href="/admin/courses" class="btn btn-primary btn-sm">+ Thêm Khóa học mới</a>
+          <button class="btn btn-outline btn-sm" onclick="showToast('Đang làm mới dữ liệu thống kê...', 'success')">
+            <i class="fa-solid fa-rotate-right"></i> Refresh
+          </button>
+        </div>
+      </div>
+
+      <!-- Dashboard Cards -->
+      <div class="dash-stats-row">
+        <div class="dash-stat-box">
+          <div class="dash-stat-icon-wrap" style="background: var(--primary-light); color: var(--primary);"><i class="fa-solid fa-users"></i></div>
+          <div>
+            <div id="admin-stat-total-users" style="font-size: 1.7rem; font-weight: 800; font-family: var(--font-mono);">--</div>
+            <div style="font-size: 0.82rem; color: var(--text-muted); font-weight: 600;">Total Users (Tổng học viên)</div>
+            <div id="admin-stat-users-sub" style="font-size: 0.75rem; color: var(--success); font-weight: 700; margin-top: 2px;">Database thật</div>
+          </div>
+        </div>
+
+        <div class="dash-stat-box">
+          <div class="dash-stat-icon-wrap" style="background: var(--success-light); color: var(--success);"><i class="fa-solid fa-user-check"></i></div>
+          <div>
+            <div id="admin-stat-active-users" style="font-size: 1.7rem; font-weight: 800; font-family: var(--font-mono);">--</div>
+            <div style="font-size: 0.82rem; color: var(--text-muted); font-weight: 600;">Active Users (Đang kích hoạt)</div>
+            <div style="font-size: 0.75rem; color: var(--cyan); font-weight: 700; margin-top: 2px;">⚡ Live DB</div>
+          </div>
+        </div>
+
+        <div class="dash-stat-box">
+          <div class="dash-stat-icon-wrap" style="background: var(--purple-light); color: var(--purple);"><i class="fa-solid fa-book"></i></div>
+          <div>
+            <div style="font-size: 1.7rem; font-weight: 800; font-family: var(--font-mono);">24</div>
+            <div style="font-size: 0.82rem; color: var(--text-muted); font-weight: 600;">Total Courses (Khóa học)</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">6 Published • 18 Drafts</div>
+          </div>
+        </div>
+
+        <div class="dash-stat-box">
+          <div class="dash-stat-icon-wrap" style="background: var(--warning-light); color: var(--warning);"><i class="fa-solid fa-video"></i></div>
+          <div>
+            <div style="font-size: 1.7rem; font-weight: 800; font-family: var(--font-mono);">680</div>
+            <div style="font-size: 0.82rem; color: var(--text-muted); font-weight: 600;">Total Lessons (Bài học)</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">98% video có phụ đề</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Section (Pure CSS Modern Visualizations) -->
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px; margin-bottom: 30px;">
+        <!-- Chart 1: User Growth -->
+        <div class="admin-chart-mockup">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+            <h3 style="font-size: 1.05rem; font-weight: 700;">
+              <i class="fa-solid fa-chart-line" style="color: var(--primary); margin-right: 6px;"></i>
+              User Growth &amp; Course Enrollment (6 tháng qua)
+            </h3>
+            <span class="badge badge-beginner">Tăng trưởng ổn định</span>
+          </div>
+
+          <!-- Pure CSS Bar Chart -->
+          <div class="css-bar-chart">
+            <div class="css-bar" style="height: 45%;" title="Tháng 9: 4,200 users"></div>
+            <div class="css-bar" style="height: 60%;" title="Tháng 10: 6,100 users"></div>
+            <div class="css-bar" style="height: 72%;" title="Tháng 11: 7,800 users"></div>
+            <div class="css-bar" style="height: 85%;" title="Tháng 12: 9,400 users"></div>
+            <div class="css-bar" style="height: 90%;" title="Tháng 1: 10,800 users"></div>
+            <div class="css-bar" style="height: 100%;" title="Tháng 2: 12,480 users"></div>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text-muted); margin-top: 8px;">
+            <span>T9/25</span>
+            <span>T10/25</span>
+            <span>T11/25</span>
+            <span>T12/25</span>
+            <span>T1/26</span>
+            <span>T2/26 (Hiện tại)</span>
+          </div>
+        </div>
+
+        <!-- Chart 2: Learning Activity -->
+        <div class="admin-chart-mockup">
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 20px;">
+            <i class="fa-solid fa-pie-chart" style="color: var(--cyan); margin-right: 6px;"></i>
+            Tỉ trọng ngôn ngữ học
+          </h3>
+          <div style="display: flex; flex-direction: column; gap: 14px; font-size: 0.88rem;">
+            <div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                <span>JavaScript &amp; Web</span>
+                <strong>42%</strong>
+              </div>
+              <div class="progress-bar"><div class="progress-bar-fill" style="width: 42%;"></div></div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                <span>Python &amp; Data</span>
+                <strong>28%</strong>
+              </div>
+              <div class="progress-bar"><div class="progress-bar-fill" style="width: 28%; background: var(--cyan);"></div></div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                <span>C# &amp; Java</span>
+                <strong>20%</strong>
+              </div>
+              <div class="progress-bar"><div class="progress-bar-fill" style="width: 20%; background: var(--purple);"></div></div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                <span>SQL &amp; Database</span>
+                <strong>10%</strong>
+              </div>
+              <div class="progress-bar"><div class="progress-bar-fill" style="width: 10%; background: var(--warning);"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Recent Tables -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+        <!-- Recent Users -->
+        <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 24px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+            <h3 style="font-size: 1.05rem; font-weight: 700;">Học viên mới (Recent Users)</h3>
+            <a href="/admin/users" style="font-size: 0.85rem; color: var(--primary); font-weight: 600;">Xem tất cả →</a>
+          </div>
+          <div id="admin-recent-users-list" style="display: flex; flex-direction: column; gap: 12px; font-size: 0.88rem;">
+            <div style="text-align: center; color: var(--text-muted); padding: 20px 0;">
+              <i class="fa-solid fa-spinner fa-spin"></i> Đang tải dữ liệu người dùng...
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Courses -->
+        <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 24px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+            <h3 style="font-size: 1.05rem; font-weight: 700;">Khóa học nổi bật (Recent Courses)</h3>
+            <a href="/admin/courses" style="font-size: 0.85rem; color: var(--primary); font-weight: 600;">Xem tất cả →</a>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 12px; font-size: 0.88rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 8px; border-bottom: 1px solid var(--border-subtle);">
+              <div>
+                <div style="font-weight: 700;">JavaScript Fundamentals</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">6,420 học viên</div>
+              </div>
+              <span class="badge badge-beginner">Published</span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 8px; border-bottom: 1px solid var(--border-subtle);">
+              <div>
+                <div style="font-weight: 700;">Python for Beginners</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">5,210 học viên</div>
+              </div>
+              <span class="badge badge-beginner">Published</span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div>
+                <div style="font-weight: 700;">C# &amp; .NET Core API</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">3,100 học viên</div>
+              </div>
+              <span class="badge badge-beginner">Published</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/data.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lớp Học Trực Tuyến - CodeNest</title>
+  <meta name="description" content="Phòng học lập trình tương tác trực tuyến tại CodeNest. Thực hành code trực tiếp, theo dõi tiến độ và hoàn thành bài giảng.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body style="overflow: hidden;">
+  <!-- Compact Learning Header -->
+  <header class="site-header" style="height: 60px;">
+    <div class="container header-container" style="height: 60px;">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="/dashboard" class="btn btn-outline btn-sm" title="Quay lại Dashboard">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <a href="/" class="brand-logo" style="font-size: 1.15rem;">
+          <div class="brand-icon" style="width: 30px; height: 30px; font-size: 0.9rem;"><i class="fa-solid fa-code"></i></div>
+          <span>Code<span class="brand-highlight">Nest</span></span>
+        </a>
+        <span style="color: var(--border-subtle);">|</span>
+        <span style="font-size: 0.88rem; font-weight: 600; color: var(--text-secondary);">Interactive Classroom</span>
+      </div>
+
+      <div class="header-actions">
+        <a href="/my-learning" class="btn btn-outline btn-sm">
+          <i class="fa-solid fa-book"></i> Khóa học của tôi
+        </a>
+        <div class="user-menu-wrapper">
+          <button class="user-avatar-btn" id="user-avatar-btn">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Avatar" class="user-avatar-img" style="width: 32px; height: 32px;">
+          </button>
+          <div class="user-menu-dropdown" id="user-menu-dropdown">
+            <a href="/dashboard" class="user-menu-item"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+            <a href="/settings" class="user-menu-item"><i class="fa-solid fa-gear"></i> Settings</a>
+            <a href="/login" class="user-menu-item" style="color: var(--danger);"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dynamic 3-Column Learning Workspace -->
+  <main id="learning-root">
+    <div style="padding: 100px 0; text-align: center;">
+      <i class="fa-solid fa-spinner fa-spin" style="font-size: 2rem; color: var(--primary);"></i>
+      <p style="margin-top: 14px; color: var(--text-muted);">Đang mở phòng học tương tác...</p>
+    </div>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/learning.js"></script>
+</body>
+</html>

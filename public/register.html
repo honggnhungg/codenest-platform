@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng Ký Tài Khoản - CodeNest</title>
+  <meta name="description" content="Tạo tài khoản học viên mới tại CodeNest để bắt đầu hành trình học lập trình trực tuyến.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body style="background: radial-gradient(100% 100% at 50% 0%, #eff6ff 0%, #ffffff 100%);">
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/" class="brand-logo">
+        <div class="brand-icon"><i class="fa-solid fa-code"></i></div>
+        <span>Code<span class="brand-highlight">Nest</span></span>
+      </a>
+
+      <div style="font-size: 0.92rem; color: var(--text-secondary);">
+        Đã có tài khoản? <a href="/login" style="color: var(--primary); font-weight: 700;">Đăng nhập</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Register Card Form -->
+  <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 50px 20px;">
+    <div style="width: 100%; max-width: 480px; background: #ffffff; border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-xl);">
+      <div style="text-align: center; margin-bottom: 24px;">
+        <h1 style="font-size: 1.7rem; font-weight: 800; margin-bottom: 6px;">Tạo tài khoản CodeNest</h1>
+        <p style="color: var(--text-secondary); font-size: 0.92rem;">Khởi đầu lộ trình học lập trình vững chắc từ hôm nay.</p>
+      </div>
+
+      <!-- Error Alert Box -->
+      <div id="reg-error-alert" style="display: none; background: var(--danger-light); color: var(--danger); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 20px; font-size: 0.88rem; align-items: center; gap: 10px;">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <span id="reg-error-text"></span>
+      </div>
+
+      <form id="register-form">
+        <div class="form-group">
+          <label class="form-label" for="reg-name">Họ và tên (Full Name)</label>
+          <input type="text" id="reg-name" class="form-input" placeholder="Ví dụ: Alex Morgan" required autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-username">Tên đăng nhập (Username)</label>
+          <input type="text" id="reg-username" class="form-input" placeholder="alexmorgan" required autocomplete="username">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-email">Email</label>
+          <input type="email" id="reg-email" class="form-input" placeholder="student@codenest.dev" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-pass">Mật khẩu</label>
+          <div class="password-wrapper">
+            <input type="password" id="reg-pass" class="form-input" placeholder="Tối thiểu 6 ký tự" required minlength="6" autocomplete="new-password">
+            <button type="button" class="password-toggle" id="toggle-reg-pass"><i class="fa-regular fa-eye"></i></button>
+          </div>
+          <!-- Password strength bar -->
+          <div style="margin-top: 6px;">
+            <div style="height: 4px; background: var(--bg-surface-alt); border-radius: var(--radius-full); overflow: hidden;">
+              <div id="strength-bar" style="width: 25%; height: 100%; background: var(--warning); transition: var(--transition);"></div>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;" id="strength-text">Độ mạnh: Khá</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-confirm">Xác nhận mật khẩu</label>
+          <input type="password" id="reg-confirm" class="form-input" placeholder="Nhập lại mật khẩu" required minlength="6" autocomplete="new-password">
+        </div>
+
+        <div style="margin-bottom: 24px; font-size: 0.88rem;">
+          <label style="display: flex; align-items: flex-start; gap: 8px; color: var(--text-secondary); cursor: pointer;">
+            <input type="checkbox" required checked style="accent-color: var(--primary); margin-top: 3px;">
+            <span>Tôi đồng ý với <a href="#" style="color: var(--primary);">Điều khoản dịch vụ</a> và <a href="#" style="color: var(--primary);">Chính sách bảo mật</a> của CodeNest.</span>
+          </label>
+        </div>
+
+        <button type="submit" id="reg-submit-btn" class="btn btn-primary btn-block btn-lg">
+          <i class="fa-solid fa-user-plus"></i> Đăng ký tài khoản
+        </button>
+      </form>
+
+      <div style="text-align: center; margin-top: 24px; font-size: 0.9rem; color: var(--text-secondary);">
+        Đã có tài khoản? <a href="/login" style="color: var(--primary); font-weight: 700;">Đăng nhập</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Toggle Password Visibility
+    document.getElementById('toggle-reg-pass').addEventListener('click', function() {
+      const pass = document.getElementById('reg-pass');
+      const icon = this.querySelector('i');
+      if (pass.type === 'password') {
+        pass.type = 'text';
+        icon.className = 'fa-regular fa-eye-slash';
+      } else {
+        pass.type = 'password';
+        icon.className = 'fa-regular fa-eye';
+      }
+    });
+
+    // Password strength visual indicator
+    document.getElementById('reg-pass').addEventListener('input', function() {
+      const val = this.value;
+      const bar = document.getElementById('strength-bar');
+      const text = document.getElementById('strength-text');
+      if (val.length < 6) {
+        bar.style.width = '25%';
+        bar.style.background = 'var(--danger)';
+        text.textContent = 'Độ mạnh: Yếu (Tối thiểu 6 ký tự)';
+      } else if (val.length < 10) {
+        bar.style.width = '65%';
+        bar.style.background = 'var(--warning)';
+        text.textContent = 'Độ mạnh: Khá tốt';
+      } else {
+        bar.style.width = '100%';
+        bar.style.background = 'var(--success)';
+        text.textContent = 'Độ mạnh: Rất mạnh!';
+      }
+    });
+
+    // Real API Register Submission
+    const regForm = document.getElementById('register-form');
+    const submitBtn = document.getElementById('reg-submit-btn');
+    const errorAlert = document.getElementById('reg-error-alert');
+    const errorText = document.getElementById('reg-error-text');
+
+    regForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      errorAlert.style.display = 'none';
+
+      const full_name = document.getElementById('reg-name').value.trim();
+      const username = document.getElementById('reg-username').value.trim();
+      const email = document.getElementById('reg-email').value.trim();
+      const password = document.getElementById('reg-pass').value;
+      const confirmPassword = document.getElementById('reg-confirm').value;
+
+      if (password !== confirmPassword) {
+        errorText.textContent = 'Mật khẩu xác nhận không khớp.';
+        errorAlert.style.display = 'flex';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang tạo tài khoản...';
+
+      try {
+        const response = await fetch('/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ full_name, username, email, password, confirmPassword })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+          errorText.textContent = data.error || 'Đăng ký không thành công. Vui lòng kiểm tra lại.';
+          errorAlert.style.display = 'flex';
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<i class="fa-solid fa-user-plus"></i> Đăng ký tài khoản';
+          return;
+        }
+
+        showToast(data.message || 'Đăng ký tài khoản thành công! Đang chuyển hướng...', 'success');
+        setTimeout(() => {
+          window.location.href = data.redirectUrl || '/login?registered=success';
+        }, 700);
+      } catch (err) {
+        errorText.textContent = 'Lỗi kết nối máy chủ. Vui lòng thử lại sau.';
+        errorAlert.style.display = 'flex';
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fa-solid fa-user-plus"></i> Đăng ký tài khoản';
+      }
+    });
+  </script>
+</body>
+</html>

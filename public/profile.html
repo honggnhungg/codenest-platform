@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hồ Sơ Cá Nhân - CodeNest</title>
+  <meta name="description" content="Xem và quản lý hồ sơ học tập cá nhân tại nền tảng CodeNest.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/" class="brand-logo">
+        <div class="brand-icon"><i class="fa-solid fa-code"></i></div>
+        <span>Code<span class="brand-highlight">Nest</span></span>
+      </a>
+
+      <nav class="main-nav" id="main-nav">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/courses" class="nav-link">Courses</a>
+        <a href="/my-learning" class="nav-link">Learning</a>
+        <a href="/dashboard" class="nav-link">Dashboard</a>
+        <a href="/admin" class="nav-link" style="color: var(--primary);"><i class="fa-solid fa-shield-halved"></i> Admin</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="notif-wrapper">
+          <button class="notif-btn" id="notif-btn"><i class="fa-regular fa-bell"></i><span class="notif-badge" id="notif-badge"></span></button>
+          <div class="notif-dropdown" id="notif-dropdown">
+            <div class="notif-header">
+              <span class="notif-title">Thông báo</span>
+              <button class="notif-clear" id="notif-clear-btn">Đánh dấu đã đọc</button>
+            </div>
+            <ul class="notif-list" id="notif-list"></ul>
+          </div>
+        </div>
+
+        <div class="user-menu-wrapper">
+          <button class="user-avatar-btn" id="user-avatar-btn">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Avatar" class="user-avatar-img">
+            <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; color: var(--text-muted);"></i>
+          </button>
+          <div class="user-menu-dropdown" id="user-menu-dropdown">
+            <div class="user-menu-header">
+              <div class="user-menu-name">Alex Morgan</div>
+              <div class="user-menu-email">student@codenest.dev</div>
+            </div>
+            <a href="/dashboard" class="user-menu-item"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+            <a href="/my-learning" class="user-menu-item"><i class="fa-solid fa-book-open"></i> My Learning</a>
+            <a href="/wishlist" class="user-menu-item"><i class="fa-regular fa-heart"></i> Wishlist</a>
+            <a href="/profile" class="user-menu-item"><i class="fa-regular fa-user"></i> Profile</a>
+            <a href="/settings" class="user-menu-item"><i class="fa-solid fa-gear"></i> Settings</a>
+            <a href="/admin" class="user-menu-item"><i class="fa-solid fa-shield-halved"></i> Admin Console</a>
+            <div class="user-menu-divider"></div>
+            <a href="/login" class="user-menu-item" style="color: var(--danger);"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+          </div>
+        </div>
+
+        <button class="mobile-toggle" id="mobile-toggle"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 24px 80px; max-width: 900px;">
+    <!-- Profile Card Header -->
+    <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-sm); margin-bottom: 32px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;">
+        <div style="display: flex; align-items: center; gap: 24px;">
+          <div id="profile-avatar-circle" style="width: 84px; height: 84px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--cyan)); color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; font-weight: 800; border: 4px solid var(--primary-light); box-shadow: var(--shadow-sm); flex-shrink: 0;">
+            U
+          </div>
+          <div>
+            <h1 id="profile-full-name" style="font-size: 1.8rem; font-weight: 800; margin-bottom: 4px;">User Profile</h1>
+            <div style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 8px;">
+              <span id="profile-username">@username</span> • <span id="profile-email">user@codenest.dev</span>
+            </div>
+            <span id="profile-role-badge" class="badge badge-intermediate">User Member</span>
+          </div>
+        </div>
+
+        <a href="/settings" class="btn btn-primary">
+          <i class="fa-solid fa-pen-to-square"></i> Edit Profile
+        </a>
+      </div>
+
+      <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-subtle);">
+        <h4 style="font-size: 0.92rem; font-weight: 700; margin-bottom: 8px; color: var(--text-primary);">Giới thiệu (Bio):</h4>
+        <p id="profile-bio" style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+          Học viên tại nền tảng CodeNest. Đang khám phá các lộ trình học lập trình thực chiến.
+        </p>
+      </div>
+
+      <div style="margin-top: 16px; font-size: 0.85rem; color: var(--text-muted);">
+        <i class="fa-regular fa-calendar" style="margin-right: 6px;"></i> Tham gia nền tảng từ: <strong id="profile-joined-date">--</strong>
+      </div>
+    </div>
+
+    <!-- Learning Statistics Grid (From Real Database) -->
+    <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 18px;">Thống kê học tập cá nhân</h3>
+    <div class="dash-stats-row" style="margin-bottom: 32px;">
+      <div class="dash-stat-box">
+        <div class="dash-stat-icon-wrap" style="background: var(--primary-light); color: var(--primary);"><i class="fa-solid fa-book-open"></i></div>
+        <div>
+          <div id="profile-stat-enrolled" style="font-size: 1.6rem; font-weight: 800; font-family: var(--font-mono);">0</div>
+          <div style="font-size: 0.82rem; color: var(--text-muted);">Khóa học đã đăng ký</div>
+        </div>
+      </div>
+
+      <div class="dash-stat-box">
+        <div class="dash-stat-icon-wrap" style="background: var(--success-light); color: var(--success);"><i class="fa-solid fa-circle-check"></i></div>
+        <div>
+          <div id="profile-stat-completed" style="font-size: 1.6rem; font-weight: 800; font-family: var(--font-mono);">0</div>
+          <div style="font-size: 0.82rem; color: var(--text-muted);">Khóa học hoàn thành</div>
+        </div>
+      </div>
+
+      <div class="dash-stat-box">
+        <div class="dash-stat-icon-wrap" style="background: var(--cyan-light); color: var(--cyan);"><i class="fa-solid fa-clock"></i></div>
+        <div>
+          <div id="profile-stat-hours" style="font-size: 1.6rem; font-weight: 800; font-family: var(--font-mono);">0h</div>
+          <div style="font-size: 0.82rem; color: var(--text-muted);">Tổng số giờ học</div>
+        </div>
+      </div>
+
+      <div class="dash-stat-box">
+        <div class="dash-stat-icon-wrap" style="background: var(--warning-light); color: var(--warning);"><i class="fa-solid fa-fire"></i></div>
+        <div>
+          <div id="profile-stat-streak" style="font-size: 1.6rem; font-weight: 800; font-family: var(--font-mono);">0 ngày</div>
+          <div style="font-size: 0.82rem; color: var(--text-muted);">Chuỗi Streak hiện tại</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="border: none; padding: 0;">
+      <div>&copy; 2026 CodeNest. All rights reserved.</div>
+      <a href="/dashboard" style="color: var(--primary); font-weight: 600;">← Về Dashboard cá nhân</a>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

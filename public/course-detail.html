@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Fundamentals - CodeNest</title>
+  <meta name="description" content="Chi tiết khóa học JavaScript Fundamentals tại CodeNest: Lộ trình từ nền tảng đến lập trình nâng cao với ES6+.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient-glow glow-top-left"></div>
+  <div class="ambient-glow glow-bottom-right"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="/" class="brand-logo">
+        <div class="brand-icon">&lt;/&gt;</div>
+        <span class="brand-text">Code<span class="brand-highlight">Nest</span></span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/#courses" class="nav-link active">Courses</a>
+        <a href="/dashboard.html" class="nav-link">Dashboard</a>
+        <a href="/admin.html" class="nav-link">Admin</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="/login.html" class="btn btn-outline">Login</a>
+        <a href="/register.html" class="btn btn-primary">Register</a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Course Hero Section -->
+    <section class="course-hero">
+      <div class="container">
+        <div class="course-hero-content">
+          <div class="course-hero-info">
+            <div class="course-category">
+              <span>⚡ Web Development</span>
+              <span>•</span>
+              <span class="badge badge-intermediate">Intermediate</span>
+            </div>
+
+            <h1 class="course-hero-title">JavaScript Fundamentals: From Core to Modern ES6+</h1>
+            
+            <p class="course-hero-desc">
+              Khóa học toàn diện trang bị nền tảng vững chắc về tư duy logic, cấu trúc dữ liệu cơ bản, DOM manipulation,
+              xử lý bất đồng bộ hiện đại và xây dựng ứng dụng thực chiến sẵn sàng cho Frontend/Backend.
+            </p>
+
+            <div class="course-meta-tags">
+              <span>⭐ 4.9 (1,240 đánh giá)</span>
+              <span>👥 4,850 học viên ghi danh</span>
+              <span>⏱️ 18 giờ học video</span>
+              <span>🔄 Cập nhật: 2026</span>
+            </div>
+          </div>
+
+          <!-- Action & Enrollment Card -->
+          <div class="course-action-card">
+            <div class="action-card-header">
+              <h3 class="action-card-title">Tiến độ khóa học của bạn</h3>
+              <p style="font-size: 0.88rem; color: var(--text-secondary);">Bạn đã đăng ký khóa học này</p>
+            </div>
+
+            <div class="progress-section">
+              <div class="progress-info">
+                <span>Tiến độ hoàn thành</span>
+                <strong style="color: var(--accent-cyan); font-family: var(--font-mono);">42% (15/36 bài)</strong>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill" style="width: 42%;"></div>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 24px;">
+              <a href="#curriculum" class="btn btn-primary btn-block btn-lg" id="btn-start-learning">
+                ▶ Start Learning (Tiếp tục bài 16)
+              </a>
+              <a href="/dashboard.html" class="btn btn-secondary btn-block">
+                Quay lại Dashboard cá nhân
+              </a>
+            </div>
+
+            <div style="margin-top: 18px; font-size: 0.8rem; color: var(--text-muted); text-align: center;">
+              🔒 Mã nguồn bài tập &amp; tài liệu tải về miễn phí
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Course Content & Syllabus Section -->
+    <section class="course-content-section" id="curriculum">
+      <div class="container">
+        <div class="course-content-layout">
+          <!-- Left: Syllabus Accordion -->
+          <div class="curriculum-container">
+            <div class="curriculum-header">
+              <div>
+                <h2 style="font-size: 1.6rem; font-weight: 700;">Nội dung khóa học</h2>
+                <p style="color: var(--text-secondary); font-size: 0.92rem;">5 Chương • 36 Bài học • Tổng thời lượng 18h 30m</p>
+              </div>
+            </div>
+
+            <div class="curriculum-accordion">
+              <!-- Section 1 -->
+              <div class="curriculum-section">
+                <div class="curriculum-section-header">
+                  <div>
+                    <strong>Chương 1: Cú pháp cốt lõi &amp; Kiểu dữ liệu</strong>
+                    <span style="font-size: 0.8rem; color: var(--text-muted); margin-left: 10px;">(5/5 hoàn thành)</span>
+                  </div>
+                  <span class="accordion-arrow">▼</span>
+                </div>
+                <ul class="curriculum-lessons-list">
+                  <li class="lesson-item">
+                    <div class="lesson-left">
+                      <span class="lesson-icon completed">✓</span>
+                      <span>01. Giới thiệu JavaScript &amp; Thiết lập môi trường</span>
+                    </div>
+                    <span class="lesson-time">12:30</span>
+                  </li>
+                  <li class="lesson-item">
+                    <div class="lesson-left">
+                      <span class="lesson-icon completed">✓</span>
+                      <span>02. Biến (var, let, const) &amp; Quy tắc đặt tên</span>
+                    </div>
+                    <span class="lesson-time">15:45</span>
+                  </li>
+                  <li class="lesson-item">
+                    <div class="lesson-left">
+                      <span class="lesson-icon completed">✓</span>
+                      <span>03. Kiểu dữ liệu nguyên thủy &amp; Tham chiếu</span>
+                    </div>
+                    <span class="lesson-time">22:10</span>
+                  </li>
+                  <li class="lesson-item">
+                    <div class="lesson-left">
+                      <span class="lesson-icon completed">✓</span>
+                      <span>04. Toán tử số học, so sánh và logic</span>
+                    </div>
+                    <span class="lesson-time">18:05</span>
+                  </li>
+                  <li class="lesson-item">
+                    <div class="lesson-left">
+                      <span class="lesson-icon completed">✓</span>
+                      <span>05. Cấu trúc điều kiện (if/else, switch case)</span>
+                    </div>
+                    <span class="lesson-time">20:15</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Section 2 -->
+              <div class="curriculum-section">
+                <div class="curriculum-section-header">
+                  <div>
+                    <strong>Chương 2: Hàm, Scope &amp; Closures</strong>
+                    <span style="font-size: 0.8rem; color: var(--text-muted); margin-left: 10px;">(6/8 hoàn thành)</span>
+                  </div>
+                  <span class="accordion-arrow">▼</span>
+                </div>
+                <ul class="curriculum-lessons-list">
+                  <li class="lesson-item">
+                    <div class="lesson-left">
+                      <span class="lesson-icon completed">✓</span>
+                      <span>06. Function Declaration vs Function Expression</span>
+                    </div>
+                    <span class="lesson-time">17:20</span>
+                  </li>
+                  <li class="lesson-item">
+                    <div class="lesson-left">
+                      <span class="lesson-icon completed">✓</span>
+                      <span>07. Arrow Functions &amp; Từ khóa this</span>
+                    </div>
+                    <span class="lesson-time">25:40</span>
+                  </li>
+                  <li class="lesson-item">
+                    <div class="lesson-left">
+                      <span class="lesson-icon active">▶</span>
+                      <strong>08. Scope Chain &amp; Lexical Environment</strong>
+                    </div>
+                    <span class="lesson-time" style="color: var(--accent-cyan);">Đang học</span>
+                  </li>
+                  <li class="lesson-item">
+                    <div class="lesson-left">
+                      <span class="lesson-icon locked">🔒</span>
+                      <span>09. Closures trong thực tế: Data Privacy &amp; Factory Functions</span>
+                    </div>
+                    <span class="lesson-time">28:10</span>
+                  </li>
+                  <li class="lesson-item">
+                    <div class="lesson-left">
+                      <span class="lesson-icon locked">🔒</span>
+                      <span>10. Higher-Order Functions: map, filter, reduce</span>
+                    </div>
+                    <span class="lesson-time">32:00</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Section 3 -->
+              <div class="curriculum-section">
+                <div class="curriculum-section-header">
+                  <div>
+                    <strong>Chương 3: DOM Manipulation &amp; Event Handling</strong>
+                    <span style="font-size: 0.8rem; color: var(--text-muted); margin-left: 10px;">(7 bài)</span>
+                  </div>
+                  <span class="accordion-arrow">▼</span>
+                </div>
+                <ul class="curriculum-lessons-list">
+                  <li class="lesson-item">
+                    <div class="lesson-left">
+                      <span class="lesson-icon locked">🔒</span>
+                      <span>11. DOM Tree &amp; Bộ chọn phần tử (querySelector)</span>
+                    </div>
+                    <span class="lesson-time">19:40</span>
+                  </li>
+                  <li class="lesson-item">
+                    <div class="lesson-left">
+                      <span class="lesson-icon locked">🔒</span>
+                      <span>12. Thao tác thuộc tính, classList và style inline</span>
+                    </div>
+                    <span class="lesson-time">24:15</span>
+                  </li>
+                  <li class="lesson-item">
+                    <div class="lesson-left">
+                      <span class="lesson-icon locked">🔒</span>
+                      <span>13. Event Listeners, Event Bubbling &amp; Delegation</span>
+                    </div>
+                    <span class="lesson-time">30:50</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Section 4 -->
+              <div class="curriculum-section">
+                <div class="curriculum-section-header">
+                  <div>
+                    <strong>Chương 4: Asynchronous JavaScript (Promises &amp; Async/Await)</strong>
+                    <span style="font-size: 0.8rem; color: var(--text-muted); margin-left: 10px;">(8 bài)</span>
+                  </div>
+                  <span class="accordion-arrow">▼</span>
+                </div>
+                <ul class="curriculum-lessons-list">
+                  <li class="lesson-item">
+                    <div class="lesson-left">
+                      <span class="lesson-icon locked">🔒</span>
+                      <span>14. Event Loop &amp; Call Stack trong JavaScript</span>
+                    </div>
+                    <span class="lesson-time">26:15</span>
+                  </li>
+                  <li class="lesson-item">
+                    <div class="lesson-left">
+                      <span class="lesson-icon locked">🔒</span>
+                      <span>15. Promise Lifecycle &amp; Error Handling (.catch)</span>
+                    </div>
+                    <span class="lesson-time">35:20</span>
+                  </li>
+                  <li class="lesson-item">
+                    <div class="lesson-left">
+                      <span class="lesson-icon locked">🔒</span>
+                      <span>16. Async/Await &amp; Fetch API gọi RESTful endpoints</span>
+                    </div>
+                    <span class="lesson-time">38:40</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Section 5 -->
+              <div class="curriculum-section">
+                <div class="curriculum-section-header">
+                  <div>
+                    <strong>Chương 5: Xây dựng dự án thực chiến Capstone</strong>
+                    <span style="font-size: 0.8rem; color: var(--text-muted); margin-left: 10px;">(8 bài)</span>
+                  </div>
+                  <span class="accordion-arrow">▼</span>
+                </div>
+                <ul class="curriculum-lessons-list">
+                  <li class="lesson-item">
+                    <div class="lesson-left">
+                      <span class="lesson-icon locked">🔒</span>
+                      <span>17. Phân tích yêu cầu và kiến trúc Module JS</span>
+                    </div>
+                    <span class="lesson-time">45:00</span>
+                  </li>
+                  <li class="lesson-item">
+                    <div class="lesson-left">
+                      <span class="lesson-icon locked">🔒</span>
+                      <span>18. Hoàn thiện và Deploy ứng dụng lên VPS</span>
+                    </div>
+                    <span class="lesson-time">50:20</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Course Highlights -->
+          <div>
+            <div class="feature-card" style="margin-bottom: 24px;">
+              <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 14px;">Bạn sẽ học được gì:</h3>
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.92rem; color: var(--text-secondary);">
+                <li>✅ Thành thạo cú pháp hiện đại ES6+ (Destructuring, Spread, Modules).</li>
+                <li>✅ Làm chủ tư duy lập trình bất đồng bộ với Async/Await.</li>
+                <li>✅ Xử lý sự kiện và tối ưu hiệu năng DOM trên trình duyệt.</li>
+                <li>✅ Tự tin tiếp cận các framework hiện đại hoặc Node.js backend.</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 14px;">Yêu cầu tiên quyết:</h3>
+              <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6;">
+                Khuyến khích học viên đã nắm cơ bản về cấu trúc HTML và CSS (có thể tham khảo khóa HTML &amp; CSS Mastery trên CodeNest).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-bottom" style="border: none; padding: 0;">
+      <p>&copy; <span id="footer-year"></span> CodeNest. All rights reserved.</p>
+      <a href="/" style="color: var(--accent-cyan);">← Quay về trang chủ</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
